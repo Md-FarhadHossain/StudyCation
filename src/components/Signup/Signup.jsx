@@ -1,31 +1,37 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
-import googleIcon from '../../assets/image/google.png'
+import googleIcon from "../../assets/image/google.png";
 
 const Signup = () => {
+  const { signupWithEmailPassword,signinWithGoogle, user } = useContext(UserContext);
+  const handleGoogleSignIn = (e) => {
+    e.preventDefault();
+    signinWithGoogle()
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
 
-  const {signupWithEmailPassword, user} = useContext(UserContext)
-
-  const handleFormSubmit = (e) => { 
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    
-    signupWithEmailPassword(email,password)
-    .then(result => {
-      console.log(result);
-      
-    })
-    .catch(error => {
-      console.log(error)
-    })
+
+    signupWithEmailPassword(email, password)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
     console.log(user);
-
-  }
-
+  };
 
   return (
     <div>
@@ -38,7 +44,6 @@ const Signup = () => {
 
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <form onSubmit={handleFormSubmit} className="card-body">
-
                 {/* Full name */}
                 <div className="form-control">
                   <label className="label">
@@ -48,11 +53,9 @@ const Signup = () => {
                   <input
                     type="text"
                     placeholder="Full name"
-
                     className="input input-bordered"
                   />
                 </div>
-
 
                 {/* Photo URL */}
                 <div className="form-control">
@@ -67,7 +70,6 @@ const Signup = () => {
                     className="input input-bordered"
                   />
                 </div>
-
 
                 {/* Email */}
                 <div className="form-control">
@@ -104,11 +106,10 @@ const Signup = () => {
                 {/* Login Button */}
                 <label className="label mt-5">
                   <div className="">
-                    <span className="text-black">Allready have an accout? </span>
-                    <Link
-                      className="link link-hover text-blue-500"
-                      to="/login"
-                    >
+                    <span className="text-black">
+                      Allready have an accout?{" "}
+                    </span>
+                    <Link className="link link-hover text-blue-500" to="/login">
                       Login here
                     </Link>
                   </div>
@@ -119,14 +120,20 @@ const Signup = () => {
               </form>
             </div>
 
-            <div className="">
-          <button className="btn bg-blue-400 border-none"><span className="mr-3"><img src={googleIcon} alt="google icon" /></span> Singup with Google</button>
-        </div>
+            <div className="form-control w-full">
+              <button onClick={handleGoogleSignIn} className="btn bg-blue-400 border-none">
+                <span className="mr-3">
+                  <img
+                    className="w-[30px] h-[30px] bg-white p-1 rounded"
+                    src={googleIcon}
+                    alt="google icon"
+                  />
+                </span>{" "}
+                Singup with Google
+              </button>
+            </div>
           </div>
         </div>
-
-        
-
       </section>
     </div>
   );
