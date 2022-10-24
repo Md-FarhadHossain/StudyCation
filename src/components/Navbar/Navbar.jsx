@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../context/AuthContext";
 
 const Navbar = () => {
+
+  const {user,signout} = useContext(UserContext)
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    signout()
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+
+  }
+  console.log(user)
+
   return (
     <section className="navbar bg-slate-200 min-h-[10vh]">
       <div className="container mx-auto">
@@ -66,8 +78,10 @@ const Navbar = () => {
 
           {/* Accout status */}
           <div className="navbar-end">
+            {user?.email}
             <Link to='/login' className="btn btn-outline">Login</Link>
             <Link to='/signup' className="btn ml-4">Sign up</Link>
+            <button onClick={handleSignOut} className="btn btn-error">Sign out</button>
           </div>
           {/* Accout status end */}
 

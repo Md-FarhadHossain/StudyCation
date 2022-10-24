@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
-
+import googleIcon from '../../assets/image/google.png'
 
 const Signup = () => {
 
-  const {signupWithEmailPassword} = useContext(UserContext)
+  const {signupWithEmailPassword, user} = useContext(UserContext)
 
   const handleFormSubmit = (e) => { 
     e.preventDefault();
@@ -13,7 +13,7 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
     
-    signupWithEmailPassword({email,password})
+    signupWithEmailPassword(email,password)
     .then(result => {
       console.log(result);
       
@@ -22,7 +22,7 @@ const Signup = () => {
       console.log(error)
     })
 
-    console.log(email, password);
+    console.log(user);
 
   }
 
@@ -54,6 +54,21 @@ const Signup = () => {
                 </div>
 
 
+                {/* Photo URL */}
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Photo URL</span>
+                  </label>
+
+                  <input
+                    type="link"
+                    placeholder="Your image URL here"
+                    name="link"
+                    className="input input-bordered"
+                  />
+                </div>
+
+
                 {/* Email */}
                 <div className="form-control">
                   <label className="label">
@@ -74,7 +89,7 @@ const Signup = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     placeholder="password"
                     className="input input-bordered"
@@ -103,8 +118,15 @@ const Signup = () => {
                 </div>
               </form>
             </div>
+
+            <div className="">
+          <button className="btn bg-blue-400 border-none"><span className="mr-3"><img src={googleIcon} alt="google icon" /></span> Singup with Google</button>
+        </div>
           </div>
         </div>
+
+        
+
       </section>
     </div>
   );

@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../context/AuthContext";
 
 const Login = () => {
+
+    const {user, signinWithEmailPassword} = useContext(UserContext)
+
+    const handleFormSubmit = (e) => { 
+      e.preventDefault();
+      const form = e.target;
+      const email = form.email.value;
+      const password = form.password.value;
+      
+      signinWithEmailPassword(email, password)
+      .then(result => {
+        console.log(result);
+        
+      })
+      .catch(error => {
+        console.log(error)
+      })
+      
+      console.log(user);
+  
+    }
+
+
   return (
     <section className="bg-base-200 min-h-[90vh]">
       <div className="hero min-h-[70vh]">
@@ -12,7 +36,7 @@ const Login = () => {
 
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
-            <form className="card-body">
+            <form onSubmit={handleFormSubmit} className="card-body">
 
                 {/* Email */}
               <div className="form-control">
@@ -23,6 +47,7 @@ const Login = () => {
                 <input
                   type="text"
                   placeholder="email"
+                  name="email"
                   className="input input-bordered"
                 />
               </div>
@@ -35,6 +60,7 @@ const Login = () => {
                 </label>
                 <input
                   type="text"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                 />
