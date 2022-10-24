@@ -3,16 +3,14 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
 
 const Navbar = () => {
-
-  const {user,signout} = useContext(UserContext)
+  const { user, signout } = useContext(UserContext);
   const handleSignOut = (e) => {
     e.preventDefault();
     signout()
-    .then(result => console.log(result))
-    .catch(error => console.log(error));
-
-  }
-  console.log(user)
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
+  };
+  
 
   return (
     <section className="navbar bg-slate-200 min-h-[10vh]">
@@ -40,52 +38,60 @@ const Navbar = () => {
             </div>
 
             {/* Logo */}
-            <Link to='/' className="normal-case text-3xl font-bold">StudyCation</Link>
-
+            <Link to="/" className="normal-case text-3xl font-bold">
+              StudyCation
+            </Link>
           </div>
 
-
-        {/* Menu */}
+          {/* Menu */}
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
-
               <li className="font-semibold text-lg">
-                <Link to='/courses'>Courses</Link>
+                <Link to="/courses">Courses</Link>
               </li>
 
-              <li className="font-semibold text-lg"><Link to='/faq'>FAQ</Link></li>
-              <li className="font-semibold text-lg"><Link to='/blog'>Blog</Link></li>
-
+              <li className="font-semibold text-lg">
+                <Link to="/faq">FAQ</Link>
+              </li>
+              <li className="font-semibold text-lg">
+                <Link to="/blog">Blog</Link>
+              </li>
 
               <li className="font-semibold text-lg">
-
-              <div className="form-control">
-
+                <div className="form-control">
                   <label className="label cursor-pointer">
-                    <span className="label-text mr-3">Light</span> 
+                    <span className="label-text mr-3">Light</span>
                     <input type="checkbox" className="toggle" />
                   </label>
-
-              </div>
-
+                </div>
               </li>
             </ul>
           </div>
 
           {/* Menu end */}
 
-
-
           {/* Accout status */}
           <div className="navbar-end">
-            {user?.email}
-            <Link to='/login' className="btn btn-outline">Login</Link>
-            <Link to='/signup' className="btn ml-4">Sign up</Link>
-            <button onClick={handleSignOut} className="btn btn-error">Sign out</button>
+            {user ? (
+              <>
+              
+              <img title={user?.displayName} className='w-[50px] mr-4 rounded-full' src={user?.photoURL} alt="User image" />
+                <button onClick={handleSignOut} className="btn btn-error hover">
+                Sign out
+              </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="btn btn-outline">
+                  Login
+                </Link>
+                <Link to="/signup" className="btn ml-4">
+                  Sign up
+                </Link>
+              </>
+            )}
           </div>
           {/* Accout status end */}
-
-
         </div>
       </div>
     </section>
