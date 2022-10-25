@@ -4,7 +4,10 @@ import { UserContext } from "../../context/AuthContext";
 import googleIcon from "../../assets/image/google.png";
 
 const Signup = () => {
-  const { signupWithEmailPassword,signinWithGoogle, user } = useContext(UserContext);
+  const { signupWithEmailPassword,signinWithGoogle, user,setImageAndName } = useContext(UserContext);
+
+
+
   const handleGoogleSignIn = (e) => {
     e.preventDefault();
     signinWithGoogle()
@@ -22,8 +25,21 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    const imageLink = form.imageLink.value;
+    
+    const fullName = form.fullName.value;
+    
+    // console.log(image, fullName, 'farhad', 3)
+    
+    
+    
+
     signupWithEmailPassword(email, password)
       .then((result) => {
+
+        handleUsreImageName(fullName, imageLink)
+        
+
         console.log(result);
       })
       .catch((error) => {
@@ -32,6 +48,22 @@ const Signup = () => {
 
     console.log(user);
   };
+
+  const handleUsreImageName = (name, imageLink) => {
+
+    const profileInfo = {
+      displayName: name,
+      photoURL: imageLink,
+    }
+
+    setImageAndName(profileInfo)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
 
   return (
     <div>
@@ -52,6 +84,7 @@ const Signup = () => {
 
                   <input
                     type="text"
+                    name="fullName"
                     placeholder="Full name"
                     className="input input-bordered"
                   />
@@ -66,7 +99,7 @@ const Signup = () => {
                   <input
                     type="link"
                     placeholder="Your image URL here"
-                    name="link"
+                    name="imageLink"
                     className="input input-bordered"
                   />
                 </div>
@@ -132,6 +165,7 @@ const Signup = () => {
                 Singup with Google
               </button>
             </div>
+
           </div>
         </div>
       </section>

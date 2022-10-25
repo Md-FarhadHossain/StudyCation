@@ -7,6 +7,7 @@ import Blog from '../components/Blog/Blog'
 import Main from '../utilities/Main'
 import Login from '../components/Login/Login'
 import Signup from '../components/Signup/Signup'
+import CourseContent from '../components/CourseContent/CourseContent'
 
 
 
@@ -28,6 +29,10 @@ const Route = () => {
                 },
                 {
                     path: '/courses',
+                    loader: async () => {
+                        return await fetch(`https://study-cation-server.vercel.app/courses`)
+                        
+                    },
                     element: <Courses />,
                 },
                 {
@@ -43,6 +48,14 @@ const Route = () => {
                     element: <Signup />,
                 }
             ]
+        },
+        {
+            path: '/courses/:id/:courseTitle',
+            element: <CourseContent />,
+            loader: async ({params}) => {
+                return await fetch(`https://study-cation-server.vercel.app/course/${params.id}/${params.courseTitle}`)
+            }
+                        
         }
     ])
 
