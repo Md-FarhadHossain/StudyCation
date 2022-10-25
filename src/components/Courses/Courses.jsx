@@ -48,9 +48,6 @@ const Courses = () => {
 
             return (
               <>
-
-
-
                            <div className="card w-[30%] bg-base-100 shadow-xl">
                   <figure>
                     <img src={course.thumbnail} alt="Course thumbnail" />

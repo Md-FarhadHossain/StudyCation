@@ -10,6 +10,7 @@ import Signup from '../components/Signup/Signup'
 import CourseContent from '../components/CourseContent/CourseContent'
 import CheckOutPage from '../pages/CheckOutPage/CheckOutPage'
 import PrivetRoute from './PrivetRoute'
+import PDFfile from '../pages/PDFfile/PDFfile'
 
 
 
