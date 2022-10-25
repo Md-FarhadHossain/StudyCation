@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
 import googleIcon from "../../assets/image/google.png";
 
@@ -7,6 +7,12 @@ import googleIcon from "../../assets/image/google.png";
 const Login = () => {
 
     const {user, signinWithEmailPassword,signinWithGoogle} = useContext(UserContext)
+    const location = useLocation()
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+    console.log(from)
+    
+  
 
     const handleFormSubmit = (e) => { 
       e.preventDefault();
@@ -17,6 +23,7 @@ const Login = () => {
       signinWithEmailPassword(email, password)
       .then(result => {
         console.log(result);
+        navigate(from, {replace: true});
         
       })
       .catch(error => {
@@ -31,6 +38,7 @@ const Login = () => {
       e.preventDefault();
       signinWithGoogle()
       .then((result) => {
+        navigate(from, {replace: true});
         console.log(result);
       })
       .catch((error) => {

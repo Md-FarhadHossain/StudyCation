@@ -1,17 +1,21 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
 import googleIcon from "../../assets/image/google.png";
 
 const Signup = () => {
   const { signupWithEmailPassword,signinWithGoogle, user,setImageAndName } = useContext(UserContext);
-
+  const location = useLocation()
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || '/';
+  console.log(from)
 
 
   const handleGoogleSignIn = (e) => {
     e.preventDefault();
     signinWithGoogle()
     .then((result) => {
+      navigate(from, {replace: true});
       console.log(result);
     })
     .catch((error) => {
@@ -36,7 +40,7 @@ const Signup = () => {
 
     signupWithEmailPassword(email, password)
       .then((result) => {
-
+        navigate(from, {replace: true});
         handleUsreImageName(fullName, imageLink)
         
 

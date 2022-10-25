@@ -8,6 +8,8 @@ import Main from '../utilities/Main'
 import Login from '../components/Login/Login'
 import Signup from '../components/Signup/Signup'
 import CourseContent from '../components/CourseContent/CourseContent'
+import CheckOutPage from '../pages/CheckOutPage/CheckOutPage'
+import PrivetRoute from './PrivetRoute'
 
 
 
@@ -46,14 +48,20 @@ const Route = () => {
                 {
                     path: '/signup',
                     element: <Signup />,
+                },
+                {
+                    path: '/check-out',
+                    element: <PrivetRoute>
+                        <CheckOutPage />
+                    </PrivetRoute>,
                 }
             ]
         },
         {
-            path: '/courses/:id/:courseTitle',
+            path: '/courses/:id',
             element: <CourseContent />,
             loader: async ({params}) => {
-                return await fetch(`https://study-cation-server.vercel.app/course/${params.id}/${params.courseTitle}`)
+                return await fetch(`https://study-cation-server.vercel.app/courses/${params.id}`)
             }
                         
         }

@@ -5,41 +5,53 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Courses = () => {
   const coursesData = useLoaderData();
-  console.log(coursesData);
+
+
 
   return (
     <section className="flex relative">
+      <div className=" drawer-mobile bg-slate-200">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-<div className=" drawer-mobile bg-slate-200">
-  <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-   
-  <div className="drawer-side sticky top-0">
-    <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+        <div className="drawer-side sticky top-0">
+          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-    <h1 className="text-2xl font-semibold text-center">Course Category</h1>
+          <h1 className="text-2xl font-semibold text-center">
+            Course Category
+          </h1>
 
-    <ul className="menu p-4 overflow-y-auto w-80 text-base-content">
-     
-      
+          <ul className="menu p-4 overflow-y-auto w-80 text-base-content">
+            {coursesData.map((course) => {
+              
 
-      {coursesData.map((course) => {
-        return (
-          <>
-            <li><Link to={`/courses/${course.id}/${course.title}`} className="bg-base-100 my-2">{course.title}</Link></li>
-          </>
-        )
-      })}
-    </ul>
-  
-  </div>
-</div>
+              return (
+                <>
+                  <li>
+                    <Link
+                      to={`/courses/${course.id}`}
+                      className="bg-base-100 my-2"
+                    >
+                      {course.title}
+                    </Link>
+                  </li>
+                </>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
 
       <div className="container mx-auto">
-        <div className="flex flex-wrap justify-center mt-28 gap-8">
+        <div className="flex flex-wrap justify-center my-28 gap-8">
           {coursesData.map((course) => {
+           
+
             return (
               <>
-                <div className="card w-[30%] bg-base-100 shadow-xl">
+
+
+
+                           <div className="card w-[30%] bg-base-100 shadow-xl">
                   <figure>
                     <img src={course.thumbnail} alt="Course thumbnail" />
                   </figure>
@@ -64,7 +76,11 @@ const Courses = () => {
 
                     <div className="py-3">
                       <p className="course__body">{course.description} </p>
-                      <Link className="link text-blue-500" to="/">
+
+                      <Link
+                        to={`/courses/${course.id}`}
+                        className="link text-blue-500"
+                      >
                         See more
                       </Link>
                     </div>
@@ -82,9 +98,11 @@ const Courses = () => {
                       <div>introductory</div>
                     </div>
 
-                    <button className="btn btn-primary w-full">
+                    <Link to='/check-out' className="btn btn-primary w-full">
                       Get Premium Access
-                    </button>
+                    </Link>
+                    
+
                   </div>
                 </div>
               </>

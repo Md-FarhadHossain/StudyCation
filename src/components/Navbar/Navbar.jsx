@@ -1,8 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
 
 const Navbar = () => {
+
+  const [theme, setTheme] = useState('Light');
+  const handleTheme = () => {
+    setTheme(theme === 'Light'? 'Dark' : 'Light');
+    
+  }
+
+
   const { user, signout } = useContext(UserContext);
   const handleSignOut = (e) => {
     e.preventDefault();
@@ -60,8 +68,10 @@ const Navbar = () => {
               <li className="font-semibold text-lg">
                 <div className="form-control">
                   <label className="label cursor-pointer">
-                    <span className="label-text mr-3">Light</span>
-                    <input type="checkbox" className="toggle" />
+                    <span className="label-text mr-3">
+                    {theme}
+                    </span>
+                    <input onClick={handleTheme} type="checkbox" className="toggle" />
                   </label>
                 </div>
               </li>
