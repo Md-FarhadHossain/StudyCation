@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
 import googleIcon from "../../assets/image/google.png";
+import githubIcon from "../../assets/image/github.png";
+
 
 
 const Login = () => {
 
-    const {user, signinWithEmailPassword,signinWithGoogle} = useContext(UserContext)
+    const {user, signinWithEmailPassword,signinWithGoogle,siginWithGithub} = useContext(UserContext)
     const location = useLocation()
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
@@ -45,6 +47,18 @@ const Login = () => {
         console.log(error);
       });
     }
+    const handleGithubSignIn = (e) => {
+      e.preventDefault();
+      siginWithGithub()
+        .then((result) => {
+          navigate(from, { replace: true });
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  
 
   return (
     <section className="bg-base-200 min-h-[90vh]">
@@ -109,15 +123,29 @@ const Login = () => {
           </div>
 
           <div className="form-control w-full">
-              <button onClick={handleGoogleSignIn} className="btn bg-blue-400 border-none">
+              <button onClick={handleGoogleSignIn} className="btn bg-blue-400 border-none mb-4">
                 <span className="mr-3">
                   <img
                     className="w-[30px] h-[30px] bg-white p-1 rounded"
                     src={googleIcon}
                     alt="google icon"
                   />
-                </span>{" "}
+                </span>
                 Login with Google
+              </button>
+
+              <button
+                onClick={handleGithubSignIn}
+                className="btn border-none"
+              >
+                <span className="mr-3">
+                  <img
+                    className="w-[30px] h-[30px] bg-white p-1 rounded"
+                    src={githubIcon}
+                    alt="google icon"
+                  />
+                </span>
+                Singup with Github
               </button>
             </div>
 

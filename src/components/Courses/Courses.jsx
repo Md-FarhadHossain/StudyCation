@@ -6,15 +6,14 @@ import { Link, useLoaderData } from "react-router-dom";
 const Courses = () => {
   const coursesData = useLoaderData();
 
-
-
   return (
     <section className="flex relative">
       <div className=" drawer-mobile bg-slate-200">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-        <div className="drawer-side sticky top-0">
+        <div className="drawer-side sticky top-8 flex items-center flex-col h-full">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+
 
           <h1 className="text-2xl font-semibold text-center">
             Course Category
@@ -22,8 +21,6 @@ const Courses = () => {
 
           <ul className="menu p-4 overflow-y-auto w-80 text-base-content">
             {coursesData.map((course) => {
-              
-
               return (
                 <>
                   <li>
@@ -44,11 +41,9 @@ const Courses = () => {
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-center my-28 gap-8">
           {coursesData.map((course) => {
-           
-
             return (
               <>
-                           <div className="card w-[30%] bg-base-100 shadow-xl">
+                <div className="card w-[30%] bg-base-100 shadow-xl">
                   <figure>
                     <img src={course.thumbnail} alt="Course thumbnail" />
                   </figure>
@@ -95,11 +90,9 @@ const Courses = () => {
                       <div>introductory</div>
                     </div>
 
-                    <Link to='/check-out' className="btn btn-primary w-full">
+                    <Link to="/check-out" className="btn btn-primary w-full">
                       Get Premium Access
                     </Link>
-                    
-
                   </div>
                 </div>
               </>

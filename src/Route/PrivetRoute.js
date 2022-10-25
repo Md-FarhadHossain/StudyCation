@@ -6,6 +6,8 @@ const PrivetRoute = ({children}) => {
 
     const {user, loading} = useContext(UserContext)
     const location = useLocation()
+    console.log(location)
+    
 
 
    if(loading){

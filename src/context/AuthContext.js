@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -19,7 +20,8 @@ const AuthContext = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   
-  const provider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider()
 
   const signupWithEmailPassword = (email, password) => {
     setLoading(true)
@@ -31,8 +33,12 @@ const AuthContext = ({ children }) => {
   };
   const signinWithGoogle = () => {
     setLoading(true)
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, googleProvider);
   };
+  const siginWithGithub = () => {
+    setLoading(true)
+    return signInWithPopup(auth, githubProvider)
+  }
   const signout = () => {
     setLoading(true)
     return signOut(auth);
@@ -61,6 +67,7 @@ const AuthContext = ({ children }) => {
     user,
     setImageAndName,
     loading,
+    siginWithGithub,
   };
 
   return (

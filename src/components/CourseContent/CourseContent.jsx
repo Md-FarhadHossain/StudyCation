@@ -2,9 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import PDFfile from "../../pages/PDFfile/PDFfile";
 import { Page, Text, Image, StyleSheet, Document } from "@react-pdf/renderer";
-import googleImage from "../../assets/image/google.png";
 
 const CourseContent = () => {
   const courseData = useLoaderData();
@@ -70,11 +68,11 @@ const CourseContent = () => {
 
                       <Text style={styles.title}>{title}</Text>
                       <Text style={styles.text}>{description}</Text>
-                      <Text style={styles.text}>Introductory: {introductory}</Text>
-                      <Text style={styles.text}>Course Duration: {time}</Text>
-                      <Text style={styles.text}>Lesson: {lesson}</Text>
-                      <Text style={styles.text}>Enrolled Student: {student}</Text>
-                      <Text style={styles.text}>Course Price: ${price} (only)</Text>
+                      <Text style={styles.text}>&#187; Introductory: {introductory}</Text>
+                      <Text style={styles.text}>&#187; Course Duration: {time}</Text>
+                      <Text style={styles.text}>&#187; Lesson: {lesson}</Text>
+                      <Text style={styles.text}>&#187; Enrolled Student: {student}</Text>
+                      <Text style={styles.text}>&#187;Course Price: ${price} (USD)</Text>
                       <Text
                         style={styles.pageNumber}
                         render={({ pageNumber, totalPages }) =>
