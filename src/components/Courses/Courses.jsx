@@ -26,27 +26,27 @@ const Courses = () => {
 
       <div
         id="category__section"
-        className={`${
-          sideBar ? "drawer-mobile bg-slate-200 show__menu" : "hide__menu"
+        className={`rounded-lg  ${
+          sideBar ? "drawer-mobile bg-white show__menu shadow-lg" : "hide__menu"
         }`}
       >
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-        <div className="drawer-side sticky top-8 flex items-center flex-col h-full">
-          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+        <div className="drawer-side overflow-scroll-none sticky top-0 flex items-center flex-col h-full">
+          
 
           <h1 className="text-2xl pt-16 font-semibold text-center">
             Course Category
           </h1>
 
-          <ul className="menu p-4 overflow-y-auto w-72 text-base-content">
+          <ul className="menu p-4 overflow-hidden mb-8 w-72 overflow-scroll-none text-base-content">
             {coursesData.map((course) => {
               return (
                 <>
                   <li>
                     <Link
                       to={`/courses/${course.id}`}
-                      className="bg-base-100 my-2"
+                      className="bg-primary text-white font-semibold  my-2 text-sm course__title"
                     >
                       {course.title}
                     </Link>
@@ -58,14 +58,14 @@ const Courses = () => {
         </div>
       </div>
 
-      <div className="container mx-auto">
+      <div className="container mx-auto px-8">
         <div className="flex flex-wrap justify-center my-28 gap-8">
           {coursesData.map((course) => {
             return (
               <>
                 <div
                   id="cousre__left--side"
-                  className="card w-[30rem] bg-base-100 shadow-xl"
+                  className="card w-[25rem] bg-base-100 shadow-xl"
                 >
                   <figure>
                     <img src={course.thumbnail} alt="Course thumbnail" />

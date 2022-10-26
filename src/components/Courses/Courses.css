@@ -5,6 +5,14 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+/* .course__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+   
+} */
 #cousre__left--side {
     position: relative;
 }
@@ -14,14 +22,27 @@
   
     
 }
+.course__container {
+    width: 1280px;
+}
+/* .course__topic {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+} */
 .hide__menu {
     transform: translateX(-999px);
     transition: all .3s ease;
 }
+.show__menu {
+    transition: all .3s ease;
 
+}
 #category__section {
     position: absolute;
     z-index: 99;
+    transition: all .3 ease;
+    width: 300px;
 }
 @media screen and (max-width: 768px) {
     
