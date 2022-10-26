@@ -77,7 +77,7 @@ const CourseContent = () => {
                       <Text style={styles.text}>&#187; Course Duration: {time}</Text>
                       <Text style={styles.text}>&#187; Lesson: {lesson}</Text>
                       <Text style={styles.text}>&#187; Enrolled Student: {student}</Text>
-                      <Text style={styles.text}>&#187;Course Price: ${price} (USD)</Text>
+                      <Text style={styles.text}>&#187; Course Price: ${price} (USD)</Text>
                       <Text
                         style={styles.pageNumber}
                         render={({ pageNumber, totalPages }) =>
