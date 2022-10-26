@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
 import googleIcon from "../../assets/image/google.png";
 import githubIcon from "../../assets/image/github.png";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
 const Login = () => {
+
+    const [error, setError] = useState('')
+
+    
 
     const {user, signinWithEmailPassword,signinWithGoogle,siginWithGithub} = useContext(UserContext)
     const location = useLocation()
@@ -25,11 +30,14 @@ const Login = () => {
       signinWithEmailPassword(email, password)
       .then(result => {
         console.log(result);
+        toast.success('Successfully Login!')
         navigate(from, {replace: true});
         
       })
       .catch(error => {
         console.log(error)
+        toast.error(error.message)
+        setError(error.message)
       })
       
       console.log(user);
@@ -40,25 +48,29 @@ const Login = () => {
       e.preventDefault();
       signinWithGoogle()
       .then((result) => {
+        toast.success('Successfully Login!')
         navigate(from, {replace: true});
         console.log(result);
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error.message)
       });
     }
     const handleGithubSignIn = (e) => {
       e.preventDefault();
       siginWithGithub()
         .then((result) => {
+          toast.success('Successfully Login!')
           navigate(from, { replace: true });
           console.log(result);
         })
         .catch((error) => {
           console.log(error);
+          toast.error(error.message)
         });
     }
-  
+    
 
   return (
     <section className="bg-base-200 min-h-[90vh]">
@@ -103,6 +115,10 @@ const Login = () => {
                     Forgot password?
                   </a>
                 </label>
+
+                <div>
+                  <span className="text-error">{error}</span>
+                </div>
 
                 
               </div>
@@ -151,6 +167,7 @@ const Login = () => {
 
         </div>
       </div>
+      <Toaster />
     </section>
   );
 };

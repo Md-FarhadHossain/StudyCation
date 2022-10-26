@@ -10,6 +10,9 @@ import Signup from '../components/Signup/Signup'
 import CourseContent from '../components/CourseContent/CourseContent'
 import CheckOutPage from '../pages/CheckOutPage/CheckOutPage'
 import PrivetRoute from './PrivetRoute'
+import ErrorPage from '../components/ErrorPage/ErrorPage'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 
@@ -20,6 +23,7 @@ const Route = () => {
         {
             path: '/',
             element: <Main />,
+            errorElement: <ErrorPage />,
             children: [
                 {
                     path: '/',

@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
 import googleIcon from "../../assets/image/google.png";
 import githubIcon from "../../assets/image/github.png";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Signup = () => {
+
+  const [error, setError] = useState('')
+
   const {
     signupWithEmailPassword,
     signinWithGoogle,
@@ -26,6 +30,8 @@ const Signup = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error.message)
+        setError(error.message)
       });
   };
   const handleGithubSignIn = (e) => {
@@ -37,6 +43,8 @@ const Signup = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error.message)
+        setError(error.message)
       });
   }
 
@@ -61,6 +69,8 @@ const Signup = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error.message)
+        setError(error.message)
       });
 
     console.log(user);
@@ -152,6 +162,10 @@ const Signup = () => {
                   </label>
                 </div>
 
+                <div>
+                  <span className="text-error">{error}</span>
+                </div>
+
                 {/* Login Button */}
                 <label className="label mt-5">
                   <div className="">
@@ -200,6 +214,7 @@ const Signup = () => {
             </div>
           </div>
         </div>
+        <Toaster />
       </section>
     </div>
   );
