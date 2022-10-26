@@ -4,6 +4,7 @@ import { BiTime } from "react-icons/bi";
 import { Link, useLoaderData } from "react-router-dom";
 
 const Courses = () => {
+  
   const coursesData = useLoaderData();
 
   return (

@@ -68,3 +68,26 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+#Welcome to StudyCation Github repo
+
+## Website name `StudyCation`
+
+This is live link of `StudyCation` website: 
+
+* Top `5` features of `StudyCation` website
+   * You will get all course whatever course you want
+   * All course are so low price
+   * Qualityful course
+   * All introductor are so skillful
+   * Everyday live sesson
+
+* The technoly I used for this website
+   * `HTML`
+   * `CSS`
+   * `Javascript`
+   * `React.js` the Javascript framework
+   * `Tailwind CSS` the CSS framwork
+   * `DaisyUI` the Tailwind components library
