@@ -5,3 +5,33 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+#cousre__left--side {
+    position: relative;
+}
+#hamburger__menu--siderbar {
+    position: absolute;
+    z-index: 999;
+  
+    
+}
+.hide__menu {
+    transform: translateX(-999px);
+    transition: all .3s ease;
+}
+
+#category__section {
+    position: absolute;
+    z-index: 99;
+}
+@media screen and (max-width: 768px) {
+    
+    .hide__menu {
+        transform: translateX(-999px);
+        transition: all .3s ease;
+    }
+    .show__menu {
+        transform: translateX(0);
+        transition: all .3s ease;
+    
+    }
+}

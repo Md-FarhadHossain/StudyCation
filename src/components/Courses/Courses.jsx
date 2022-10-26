@@ -2,25 +2,44 @@ import React from "react";
 import "./Courses.css";
 import { BiTime } from "react-icons/bi";
 import { Link, useLoaderData } from "react-router-dom";
+import { useState } from "react";
 
 const Courses = () => {
-  
+  const [sideBar, setSideBar] = useState(true);
+  const [onOff, setOnOff] = useState("Close Menu");
+
+  const handleSideResponsive = (e) => {
+    console.log("first");
+    setSideBar(!sideBar);
+    setOnOff(onOff === "Close Menu" ?  "Open Menu":"Close Menu");
+  };
+ 
   const coursesData = useLoaderData();
 
   return (
     <section className="flex relative">
-      <div className=" drawer-mobile bg-slate-200">
+      <div id='hamburger__menu--siderbar' className='p-4'>
+        <button onClick={handleSideResponsive} className="btn">
+          {onOff}
+        </button>
+      </div>
+
+      <div
+        id="category__section"
+        className={`${
+          sideBar ? "drawer-mobile bg-slate-200 show__menu" : "hide__menu"
+        }`}
+      >
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
         <div className="drawer-side sticky top-8 flex items-center flex-col h-full">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-
-          <h1 className="text-2xl font-semibold text-center">
+          <h1 className="text-2xl pt-16 font-semibold text-center">
             Course Category
           </h1>
 
-          <ul className="menu p-4 overflow-y-auto w-80 text-base-content">
+          <ul className="menu p-4 overflow-y-auto w-72 text-base-content">
             {coursesData.map((course) => {
               return (
                 <>
@@ -44,7 +63,10 @@ const Courses = () => {
           {coursesData.map((course) => {
             return (
               <>
-                <div className="card w-[30%] bg-base-100 shadow-xl">
+                <div
+                  id="cousre__left--side"
+                  className="card w-[30rem] bg-base-100 shadow-xl"
+                >
                   <figure>
                     <img src={course.thumbnail} alt="Course thumbnail" />
                   </figure>

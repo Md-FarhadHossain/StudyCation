@@ -48,7 +48,7 @@ const AuthContext = ({ children }) => {
 
   const setImageAndName = (profileInfo) => {
     setLoading(true)
-    return updateProfile(auth.user, profileInfo);
+    return updateProfile(auth.currentUser, profileInfo);
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
