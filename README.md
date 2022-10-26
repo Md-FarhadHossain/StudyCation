@@ -73,9 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 #Welcome to StudyCation Github repo
 
-## Website name `StudyCation`
+# Website name `StudyCation`
 
-This is live link of `StudyCation` website: 
+## This is live link of `StudyCation` website: \
 
 * Top `5` features of `StudyCation` website
    * You will get all course whatever course you want
