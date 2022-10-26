@@ -1,6 +1,6 @@
-#Welcome to StudyCation Github repo
+# Welcome to StudyCation Github repo
 
-# Website name `StudyCation`
+## Website name `StudyCation`
 
 ## This is live link of `StudyCation` website: [http://localhost:3000](http://localhost:3000)
 

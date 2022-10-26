@@ -3,7 +3,7 @@ import React from 'react'
 const BlogContent = ({title, description}) => {
   return (
     <div>
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
         {/* Question number 1 */}
         <div>
           <div className="mockup-window border border-base-300 my-8">

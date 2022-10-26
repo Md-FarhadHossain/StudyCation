@@ -46,7 +46,7 @@ const Navbar = () => {
             </div>
 
             {/* Logo */}
-            <Link to="/" className="normal-case text-3xl font-bold">
+            <Link to="/" className="normal-case sm:text-3xl text-xl font-bold">
               StudyCation
             </Link>
           </div>
