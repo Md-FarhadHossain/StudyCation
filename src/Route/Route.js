@@ -54,10 +54,13 @@ const Route = () => {
                     element: <Signup />,
                 },
                 {
-                    path: '/check-out',
+                    path: '/check-out/:id/:courseTitle',
                     element: <PrivetRoute>
                         <CheckOutPage />
                     </PrivetRoute>,
+                    loader: async ({params}) => {
+                        return await fetch(`https://study-cation-server.vercel.app/courses/${params.id}/${params.courseTitle}`)
+                    }
                 }
             ]
         },

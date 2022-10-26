@@ -6,7 +6,7 @@ import { Page, Text, Image, StyleSheet, Document } from "@react-pdf/renderer";
 
 const CourseContent = () => {
   const courseData = useLoaderData();
-  const { thumbnail, title, description,introductory,time, lesson, student, price } = courseData;
+  const { thumbnail, title, description,introductory,time, lesson, student, price,id } = courseData;
   const styles = StyleSheet.create({
     body: {
       paddingTop: 35,
@@ -45,7 +45,12 @@ const CourseContent = () => {
     },
   });
 
+  const  courseTitle = title
+ const courseTitleWithOutSpace = courseTitle.replace(/ /g,'_')
   return (
+
+    
+
     <section>
       <div className="navbar bg-base-200">
         <div className="container mx-auto">
@@ -118,7 +123,7 @@ const CourseContent = () => {
           </div>
 
           <div>
-            <Link to="/check-out" className="btn btn-primary w-full my-8">
+            <Link to={`/check-out/${id}/${courseTitleWithOutSpace}`} className="btn btn-primary w-full my-8">
               Get Premium Access
             </Link>
           </div>

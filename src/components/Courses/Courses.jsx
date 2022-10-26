@@ -61,6 +61,8 @@ const Courses = () => {
       <div className="container mx-auto px-8">
         <div className="flex flex-wrap justify-center my-28 gap-8">
           {coursesData.map((course) => {
+            const  courseTitle = course.title
+            const courseTitleWithOutSpace = courseTitle.replace(/ /g,'_')
             return (
               <>
                 <div
@@ -113,7 +115,7 @@ const Courses = () => {
                       <div>introductory</div>
                     </div>
 
-                    <Link to="/check-out" className="btn btn-primary w-full">
+                    <Link to={`/check-out/${course.id}/${courseTitleWithOutSpace}`} className="btn btn-primary w-full">
                       Get Premium Access
                     </Link>
                   </div>
