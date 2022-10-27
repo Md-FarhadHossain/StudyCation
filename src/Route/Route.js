@@ -11,6 +11,7 @@ import CourseContent from '../components/CourseContent/CourseContent'
 import CheckOutPage from '../pages/CheckOutPage/CheckOutPage'
 import PrivetRoute from './PrivetRoute'
 import ErrorPage from '../components/ErrorPage/ErrorPage'
+import Account from '../components/Account/Account'
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -52,6 +53,12 @@ const Route = () => {
                 {
                     path: '/signup',
                     element: <Signup />,
+                },
+                {
+                    path: '/account',
+                    element: <PrivetRoute>
+                        <Account />
+                    </PrivetRoute>,
                 },
                 {
                     path: '/check-out/:id/:courseTitle',

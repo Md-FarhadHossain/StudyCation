@@ -118,7 +118,7 @@ const Navbar = () => {
             {user ? (
               <>
               
-              <img title={user?.displayName} className='w-[50px] mr-4 rounded-full' src={user?.photoURL} alt="User image" />
+              <Link to='/account'><img title={user?.displayName} className='w-[50px] mr-4 rounded-full' src={user?.photoURL} alt="User image" /></Link>
                 <button onClick={handleSignOut} className="btn btn-error hover">
                 Sign out
               </button>
