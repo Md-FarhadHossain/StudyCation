@@ -95,13 +95,13 @@ const Signup = () => {
     <div>
       <section className="bg-base-200 min-h-[90vh]">
         <div className="hero min-h-[70vh]">
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-center items-center">
             <div className="text-center mb-4 pt-8">
               <h1 className="text-5xl font-bold">Signup now!</h1>
             </div>
 
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mb-4">
-              <form onSubmit={handleFormSubmit} className="card-body">
+            <div className="card flex-shrink-0 w-[80%] sm:w-[90%] max-w-sm shadow-2xl bg-base-100 mb-4">
+              <form onSubmit={handleFormSubmit} className="card-body p-4 ">
                 {/* Full name */}
                 <div className="form-control">
                   <label className="label">
@@ -183,10 +183,10 @@ const Signup = () => {
               </form>
             </div>
 
-            <div className="form-control w-full">
+            <div className="form-control w-[90%] items-center justify-center">
               <button
                 onClick={handleGoogleSignIn}
-                className="btn bg-blue-400 border-none mb-4"
+                className="btn w-[80%] bg-blue-400 border-none mb-4"
               >
                 <span className="mr-3">
                   <img
@@ -200,7 +200,7 @@ const Signup = () => {
 
               <button
                 onClick={handleGithubSignIn}
-                className="btn border-none"
+                className="btn border-none w-[80%]"
               >
                 <span className="mr-3">
                   <img

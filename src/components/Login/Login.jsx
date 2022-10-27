@@ -75,14 +75,14 @@ const Login = () => {
   return (
     <section className="bg-base-200 min-h-[90vh]">
       <div className="hero min-h-[70vh]">
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center items-center">
           <div className="text-center mb-4">
             <h1 className="text-5xl font-bold">Login now!</h1>
           </div>
 
-          <div className="card mb-4 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card mb-4 flex-shrink-0 w-[90%] max-w-sm shadow-2xl bg-base-100">
 
-            <form onSubmit={handleFormSubmit} className="card-body">
+            <form onSubmit={handleFormSubmit} className="card-body p-4">
 
                 {/* Email */}
               <div className="form-control">
@@ -138,11 +138,11 @@ const Login = () => {
             </form>
           </div>
 
-          <div className="form-control w-full">
-              <button onClick={handleGoogleSignIn} className="btn bg-blue-400 border-none mb-4">
-                <span className="mr-3">
+          <div className="form-control w-[90%] flex items-center justify-center">
+              <button onClick={handleGoogleSignIn} className="btn bg-blue-400 w-[90%] border-none mb-4">
+                <span className="">
                   <img
-                    className="w-[30px] h-[30px] bg-white p-1 rounded"
+                    className="w-[30px] mr-3 h-[30px] bg-white p-1 rounded"
                     src={googleIcon}
                     alt="google icon"
                   />
@@ -152,7 +152,7 @@ const Login = () => {
 
               <button
                 onClick={handleGithubSignIn}
-                className="btn border-none"
+                className="btn border-none w-[90%]"
               >
                 <span className="mr-3">
                   <img
