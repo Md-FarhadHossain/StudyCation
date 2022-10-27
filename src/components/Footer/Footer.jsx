@@ -1,9 +1,10 @@
 import React from "react";
+import './Footer.css'
 
 const Footer = () => {
   return (
     <div className=" bg-base-200">
-      <footer className="container mx-auto footer py-24 text-base-content">
+      <footer className="container px-4 footer__footer mx-auto footer py-24 text-base-content">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
