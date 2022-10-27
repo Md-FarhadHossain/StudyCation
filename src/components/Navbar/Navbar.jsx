@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/AuthContext";
+import Logo from '../../assets/image/logo.png'
+import './Navbar.css'
 
 const Navbar = () => {
 
   const [theme, setTheme] = useState('Light');
+  const [dropdown, setDropdown] = useState(true)
   const handleTheme = () => {
     setTheme(theme === 'Light'? 'Dark' : 'Light');
     
@@ -19,13 +22,16 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   
+  const hanldeHamburgerMenu = () => {
+    setDropdown(!dropdown)
+  }
 
   return (
-    <section className="navbar bg-slate-200 min-h-[10vh]">
+    <section className="navbar bg-blue-500 text-white  min-h-[10vh]">
       <div className="container mx-auto">
         <div className="navbar">
           <div className="navbar-start">
-            <div className="dropdown">
+            <div onClick={hanldeHamburgerMenu} className={`dropdown`}>
               {/* Hamburger Menu */}
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
                 <svg
@@ -46,10 +52,37 @@ const Navbar = () => {
             </div>
 
             {/* Logo */}
-            <Link to="/" className="normal-case sm:text-3xl text-xl font-bold">
-              StudyCation
+            <Link to="/" className="normal-case flex items-center sm:text-3xl text-xl font-bold">
+             <img className="w-14 mr-2" src={Logo} alt="" /> <span className="sm:block hidden">StudyCation</span>
             </Link>
           </div>
+
+          {/* Responsive menu */}
+<div className={ `top-24 left-4 z-[99999] absolute ${dropdown ? 'show__dropdown': 'hide__dropdown'}`}>
+<ul className="menu bg-blue-500    text-white w-56 rounded-box shadow-2xl">
+          <li className="font-semibold text-lg">
+                <Link to="/courses">Courses</Link>
+              </li>
+
+              <li className="font-semibold text-lg">
+                <Link to="/faq">FAQ</Link>
+              </li>
+              <li className="font-semibold text-lg">
+                <Link to="/blog">Blog</Link>
+              </li>
+
+              <li className="font-semibold text-lg">
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-3 text-white">
+                    {theme}
+                    </span>
+                    <input onClick={handleTheme} type="checkbox" className="toggle" />
+                  </label>
+                </div>
+              </li>
+</ul>
+</div>
 
           {/* Menu */}
           <div className="navbar-center hidden lg:flex">
@@ -68,7 +101,7 @@ const Navbar = () => {
               <li className="font-semibold text-lg">
                 <div className="form-control">
                   <label className="label cursor-pointer">
-                    <span className="label-text mr-3">
+                    <span className="label-text text-white mr-3">
                     {theme}
                     </span>
                     <input onClick={handleTheme} type="checkbox" className="toggle" />

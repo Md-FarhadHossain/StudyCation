@@ -3,6 +3,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { Page, Text, Image, StyleSheet, Document } from "@react-pdf/renderer";
+import Logo from '../../assets/image/logo.png'
+
 
 const CourseContent = () => {
   const courseData = useLoaderData();
@@ -55,8 +57,8 @@ const CourseContent = () => {
       <div className="navbar bg-base-200">
         <div className="container mx-auto">
           <div className="flex-1">
-            <Link to="/" className="btn btn-ghost normal-case text-3xl">
-              StudyCation
+          <Link to="/" className="normal-case flex items-center sm:text-3xl text-xl font-bold">
+             <img className="w-14 mr-2" src={Logo} alt="" /> <span>StudyCation</span>
             </Link>
           </div>
           <div className="flex-none">
@@ -87,7 +89,7 @@ const CourseContent = () => {
                     </Page>
                   </Document>
                 }
-                fileName="course file"
+                fileName="Course Details file"
               >
                 {({ loading }) =>
                   loading ? (
@@ -114,7 +116,7 @@ const CourseContent = () => {
       <div className="h-screen flex items-center justify-center">
         <div className="w-[40%] mx-auto">
           {/* image */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-14">
             <img src={thumbnail} alt="course thumbnail" />
           </div>
           <div>

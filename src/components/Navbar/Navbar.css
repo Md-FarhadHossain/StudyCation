@@ -1,0 +1,16 @@
+.hide__dropdown {
+    transition: all .3s ease;
+    transform: translateX(-999px);
+}
+
+@media screen and (max-width: 768px){
+    .show__dropdown {
+   
+        transform: translateX(0);
+        transition: all .3s ease;
+    }
+    .hide__dropdown {
+        transition: all .3s ease;
+        transform: translateX(-999px);
+    }
+}
