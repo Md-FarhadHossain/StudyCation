@@ -26,7 +26,7 @@ const Courses = () => {
 
       <div
         id="category__section"
-        className={`rounded-lg  ${
+        className={`rounded-lg ${
           sideBar ? "drawer-mobile bg-white show__menu shadow-lg" : "hide__menu"
         }`}
       >

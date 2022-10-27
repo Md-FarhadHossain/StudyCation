@@ -7,7 +7,7 @@ import './Navbar.css'
 const Navbar = () => {
 
   const [theme, setTheme] = useState('Light');
-  const [dropdown, setDropdown] = useState(true)
+  const [dropdown, setDropdown] = useState(false)
   const handleTheme = () => {
     setTheme(theme === 'Light'? 'Dark' : 'Light');
     
