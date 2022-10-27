@@ -95,12 +95,12 @@ const Signup = () => {
     <div>
       <section className="bg-base-200 min-h-[90vh]">
         <div className="hero min-h-[70vh]">
-          <div className="hero-content flex flex-col">
-            <div className="text-center mb-4">
+          <div className="flex flex-col">
+            <div className="text-center mb-4 pt-8">
               <h1 className="text-5xl font-bold">Signup now!</h1>
             </div>
 
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mb-4">
               <form onSubmit={handleFormSubmit} className="card-body">
                 {/* Full name */}
                 <div className="form-control">
